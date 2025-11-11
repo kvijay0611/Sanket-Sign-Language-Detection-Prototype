@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam Video Capture</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="hero-heading-parent-div"
+        style="background: url('{{ url_for('static', filename='heroheading.jpg') }}') center/cover no-repeat; ">
+        <div class="background-overlay"></div>
+        <h1 class="hero-heading">Project <span>संकेत</span></h1>
+        <p> -Giving Voice to the Voiceless</p>
+
+
+    </div>
+    <div class=" header">
+        <section class="section-1">
+            <h1>What is Project संकेत ?</h1>
+            <p>Welcome to <strong> Project संकेत</strong> , where we revolutionize learning sign language using
+                groundbreaking ML models!
+                Our primary focus is to <strong>educate users</strong> about the importance of sign
+                language and<strong> provide a
+                    platform</strong> for seamless communication between those who use sign language and those who
+                don’t.</p>
+        </section>
+        <section class="section-2">
+            <div class="img-signlangs">
+                <img src="{{ url_for('static', filename='handsignlogo-removebg-preview.png') }}" alt="">
+
+            </div>
+        </section>
+    </div>
+    <div class="header" style="background-color: #ffefe2;">
+        <section class="section-2">
+            <div class="img-signlangs">
+                <img src="{{ url_for('static', filename='handsignlogo5-removebg-preview.png') }}" style="scale: 0.93;"
+                    alt="">
+
+            </div>
+        </section>
+        <section class="section-1" style="margin-left: 5%;">
+            <h1>What we do?</h1>
+            <p>Our advanced <strong>ML model</strong> helps individuals unfamiliar with sign language comprehend various
+                signed languages
+                effortlessly. With our initiative, the power of understanding is only a ML model away!</p>
+        </section>
+    </div>
+    <div class="header">
+        <section class="section-1">
+            <h1>We are not done yet! <h1>
+                    <p>Our future goals don’t stop at language detection; we're reaching for the stars! <strong>Imagine
+                            real-time video chat integration</strong> to bridge communication barriers in various
+                        settings, from
+                        online meetings to sign language classes. This is the broader impact our model strives to
+                        achieve.</p>
+        </section>
+        <section class="section-2">
+            <div class="img-signlangs">
+                <img src="{{ url_for('static', filename='handsignlogo4-removebg-preview.png') }}" style="scale: 1.09;"
+                    alt="">
+
+            </div>
+        </section>
+    </div>
+    <div class="trained-set">
+        <h1>Our Model is currently trained on this dataset</h1>
+
+        <div class="img-box">
+
+            <img src="{{ url_for('static', filename='hello.webp') }}" alt="" style="margin-bottom: 40px;">
+            <p style="width:40%; text-align: center; color: #157199; font-size: 32px; margin-bottom: 3%; ">Hello</p>
+
+            <img src="{{ url_for('static', filename='thank_you.webp') }}" alt="" style="margin-bottom: 40px;">
+            <p style="width:40%; text-align: center; color: #157199; font-size: 32px; margin-bottom: 3%; ">Thank You</p>
+
+            <img src="{{ url_for('static', filename='i_love_you.webp') }}" alt="" style="margin-bottom: 40px;">
+            <p style="width:40%; text-align: center; color: #157199; font-size: 32px; margin-bottom: 3%; ">I Love You
+            </p>
+
+            <!-- <img src="{{ url_for('static', filename='bye-bye.webp') }}" alt="" style="margin-bottom: 40px;">
+            <p style="width:40%; text-align: center; color: #157199; font-size: 32px; margin-bottom: 3%; ">Bye-Bye</p> -->
+
+
+
+        </div>
+
+    </div>
+    <div class="hero" id="he-ro">
+        <h1>Try our Model!</h1>
+        <div class="camera">
+            <img src="" id="video-feed">
+        </div>
+        <div class="btn-flex">
+            <button class="btn" id="start-button" onclick="startVideoCapture()">Start</button>
+            <button class="btn" id="stop-button" style="display: none;" onclick="stopVideoCapture()">Stop</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-flex-horizontal">
+            <h2>Project संकेत </h2>
+
+            <div class="creators-box">
+                <h3>Connect with us!</h3>
+                <div class="creators">
+                    <a href="https://www.linkedin.com/in/swapnendu-banik-814971294/" target="_blank">Recker</a>
+                    <a href="https://www.linkedin.com/in/neka-s-07j0103/" target="_blank">Neka</a>
+                    <a href="https://www.linkedin.com/in/keerti-vijay-ananth-769940251/" target="_blank">Keerti</a>
+                    <a href="https://www.linkedin.com/in/janarthanan-karthikeyan-595a14251/"
+                        target="_blank">Janarthanan</a>
+                    <a href="https://www.linkedin.com/in/aritri-mangal-530269250/ " target="_blank">Aritri</a>
+
+                </div>
+            </div>
+        </div>
+        <p>Copyright © 2023</p>
+
+    </footer>
+    <script>
+        function startVideoCapture() {
+            var hero = document.getElementById("he-ro");
+            hero.style.height = "1200px";
+            // Add an AJAX call to start the video feed on the server
+            fetch("{{ url_for('start_video') }}", {
+                method: 'POST',
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    var video = document.getElementById("video-feed");
+                    video.src = "{{ url_for('video_feed') }}";
+                    // video.style.display = "block";
+                    var startButton = document.getElementById("start-button");
+                    var stopButton = document.getElementById("stop-button");
+                    startButton.style.display = "none";
+                    stopButton.style.display = "block";
+                    setTimeout(function () {
+                        video.style.display = "block";
+                    }, 3000);
+                })
+                .catch(error => console.error(error));
+        }
+
+        function stopVideoCapture() {
+            var hero = document.getElementById("he-ro");
+            hero.style.height = "500px";
+            // Add an AJAX call to stop the video feed on the server
+            fetch("{{ url_for('stop_video') }}", {
+                method: 'POST',
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    var video = document.getElementById("video-feed");
+                    video.style.display = "none";
+                    var stopButton = document.getElementById("stop-button");
+                    stopButton.style.display = "none";
+                    var startButton = document.getElementById("start-button");
+                    startButton.style.display = "block";
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+
+</html>

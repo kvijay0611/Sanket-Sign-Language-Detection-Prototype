@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* COLORS USED #020a19  #ededed #ede5e5 #7acbc6  #1b2e4d*/
+body {
+  font-family: "Rubik", sans-serif;
+  color: #343a40;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 20px; */
+  text-align: left;
+}
+
+.hero-heading{
+
+  font-weight: 700;
+  font-size: 48px;
+  color:#fff;
+  z-index: 1;
+  
+}
+.hero-heading-parent-div {
+
+ width: 100%;
+ height: 500px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+ 
+}
+.hero-heading-parent-div p{
+  margin-left: 30%;
+  margin-top: -3%;
+  color:white;
+   z-index: 1;
+   font-weight: 500;
+   font-size: 32px;
+}
+
+.background-overlay {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.35); /* Adjust the opacity to make it darker (0.5 is 50% opacity) */
+}
+.hero-heading span{
+  margin-left: 12px;
+  font-size: 210px;
+  color:#ffc99d;
+}
+
+.header {
+  display: flex;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: #fff4eb;
+  align-items: center;
+  gap:84px;
+  z-index: -3;
+
+}
+.section-1{
+  width: 60%;
+}
+.section-1 p{
+  width: 85%;
+  word-wrap: break-word;
+  line-height: 1.6;
+  color: #020a19;
+}
+P{
+  font-size: 20px;
+  font-weight: 400;
+}
+.section-1 h1{
+  text-align: left;
+  font-size: 54px;
+  font-weight: 700;
+}
+.img-signlangs{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.img-signlangs img{
+  width: 360px;
+}
+
+.img-signlangs::after,
+.img-signlangs::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.img-signlangs::after {
+  width: 118%;
+  /* Using padding as it works as fake height cuz 
+  height itself is not working */
+  padding-bottom: 118%;
+  background-color: #7acbc6;
+  z-index: -2;
+}
+.img-signlangs::before {
+  width: 73%;
+  /* Using padding as it works as fake height cuz 
+  height itself is not working */
+  padding-bottom: 73%;
+  background-color: #1b2e4d;
+  z-index: -1;
+}
+
+
+h1 {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  color: #157199;
+  text-align: center;
+}
+
+.camera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.btn {
+  background-color: #157199;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 162px;
+}
+
+.hero {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to right, #ffddc1, #fff4eb);
+    
+
+  padding: 24px;
+  padding-bottom: 74px;
+}
+
+
+
+
+.hero h1{
+  font-size: 48px;
+  margin-bottom: 0;
+}
+
+.img-box{
+
+  width: 100%;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Display images in a single column */
+  max-height: 100%; /* Ensure the column doesn't exceed the container's height */
+  
+}
+.img-box img{
+  width: 50%;
+}
+
+
+.trained-set{
+  width: 100%;
+  background-color:#ffefe2 ;
+  padding-bottom: 54px;
+}
+
+footer{
+  width: 100%;
+  height:auto;
+  color: #ededed;
+  background-color:#bda396 ;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 100px;
+
+}
+
+footer p{
+  text-align: center;
+}
+
+.footer-flex-horizontal{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-flex-horizontal h2{
+  font-size: 48px;
+}
+.creators-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+}
+
+.creators{
+  display: flex;
+  /* flex-direction: column; */
+  gap:20px;
+}
+
+.creators a{
+  text-decoration: none;
+  color: #020a19;
+  font-size: 22px;
+  font-weight: 500;
+  
+}
