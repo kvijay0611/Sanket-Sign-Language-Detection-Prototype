@@ -119,20 +119,6 @@ gunicorn -w 2 -b 0.0.0.0:8000 app:app
 
 ---
 
-## 🤝 Contributing
-
-1. Fork the repo and create a feature branch.
-2. Keep the app simple and dependency-light.
-3. Open a PR with clear steps to reproduce and screenshots/GIFs of the UI.
-
----
-
-## 📄 License
-
-For educational use. Check licenses of third-party dependencies listed in `requirements.txt`.
-
----
-
 ## 🙏 Acknowledgements
 
 - Flask for Python web microservices
